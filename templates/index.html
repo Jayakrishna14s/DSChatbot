@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        #chat-container {
+            width: 90%;
+            margin: auto;
+            padding: 30px;
+            border: 2px solid #ccc;
+            text-align: centre;
+        }
+    </style>
+    
+    
+    
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="{{ url_for('static', filename='chat.js') }}" defer></script>
+    <title>Chatbot</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <p><h1>Chatbot</h1></p>
+    </div>
+   
+    <div style="text-align: center;">
+        <button id="start-chat-button">Start Chat</button>
+    </div>
+    <br>
+    <br>
+   
+    <div id="chat-container">
+        <div id="chat-elements" style="display: none;">
+            <div style="text-align: center;">
+                <p><h3>BOT-1</h3></p>
+            </div>
+            <button id="back-button">Back</button>
+            <br>
+            <br>
+            <div id="chat-log"></div>
+            <input type="text" id="user-input" placeholder="Enter your message">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const startChatButton = document.getElementById('start-chat-button');
+            const chatElements = document.getElementById('chat-elements');
+            const backButton = document.getElementById('back-button');
+            const chatLog = document.querySelector('.user-log');
+            const userInput = document.getElementById('user-input');
+            const sendButton = document.getElementById('send-button');
+
+            startChatButton.addEventListener('click', function() {
+                // Show chat elements
+                chatElements.style.display = 'block';
+                startChatButton.style.display = 'none';
+
+                // You can initialize your chatbot or perform any other actions here
+                console.log('Chatbot activated!');
+            });
+
+            backButton.addEventListener('click', function() {
+                const chatLog=document.querySelector('#chat-log');
+                chatLog.textContent="";
+                // Hide chat elements and show the "Start Chat" button again
+                chatElements.style.display = 'none';
+                startChatButton.style.display = 'block';
+            });
+
+        });
+    </script>
+</body>
+</html>
+
